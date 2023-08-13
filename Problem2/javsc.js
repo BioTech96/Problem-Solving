@@ -9,18 +9,18 @@ function hasPairWithSum(arr, targetSum) {
     for (const num of arr) {
         const complement = targetSum - num;
         if (numSet.has(complement)) {
-            return true; // Found a pair that sums to the target
+            return true; 
         }
         numSet.add(num);
     }
 
-    return false; // No such pair was found
+    return false; 
 }
 
 
 
-// Test cases
+// Test 
 const numbers = [1, 2, 3, 4, 5];
 const target = 9;
 
-console.log(hasPairWithSum(numbers, target)); // Output: true (3 + 6 = 9)
+console.log(hasPairWithSum(numbers, target)); 
