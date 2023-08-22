@@ -1,8 +1,9 @@
-function countSubstrings(s) {
+
+const countSubstrings = (s) => {
     let count = 0;
-    let diffCount = new Array(s.length + 1).fill(0);
-    diffCount[0] = 1;
-    let diff = 0;
+    let diffCount = new Array(2 * s.length + 1).fill(0);
+    diffCount[s.length] = 1;
+    let diff = s.length;
 
     for (let i = 0; i < s.length; i++) {
         if (s[i] === s[i].toLowerCase()) {
@@ -11,10 +12,7 @@ function countSubstrings(s) {
             diff++;
         }
         
-        if (diff >= 0) {
-            count += diffCount[diff];
-        }
-        
+        count += diffCount[diff];
         diffCount[diff]++;
     }
 
@@ -22,6 +20,6 @@ function countSubstrings(s) {
 }
 
 // Example usage
-const s = "WomensDAY";
-
-console.log( countSubstrings(s));
+const s = prompt("Enter a string:");
+const result = countSubstrings(s);
+console.log(`There are ${result} Substring`);
